@@ -1,0 +1,12 @@
+# Site settings
+title: Le Jardin de Yilin
+email: ywei12@stevens.edu
+description: > # this means to ignore newlines until "baseurl:"
+  Check Yilin Wei's personal website. I am interested in data analyis and data visualization. I am an analytics intern in United Nations and also a graduate student of Stevens Institute of Technology.
+baseurl: /blog/ # the subpath of your site, e.g. /blog/
+url: "http://yilinwei.com" # the base hostname & protocol for your site
+twitter_username: lemonsonglynn
+github_username:  lemonsong
+
+# Build settings
+markdown: kramdown
