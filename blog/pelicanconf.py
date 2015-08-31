@@ -8,7 +8,7 @@ SITEURL = ''
 
 PATH = 'content'
 
-TIMEZONE = 'America/New_York'
+TIMEZONE = 'UTC'
 
 DEFAULT_LANG = u'en'
 
@@ -31,7 +31,10 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 DEFAULT_PAGINATION = 20
 THEME = 'pelican-themes/blue-penguin'
-DISQUS_SITENAME = yilinwei
+DISQUS_SITENAME = 'yilinwei'
+
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['asciidoc_reader']
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
