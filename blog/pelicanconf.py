@@ -6,9 +6,9 @@ AUTHOR = u'Yilin Wei'
 SITENAME = u'Le Jardin de Yilin'
 SITEURL = ''
 
-PATH = 'content'
+PATH = u'content'
 
-TIMEZONE = 'UTC'
+TIMEZONE = u'UTC'
 
 DEFAULT_LANG = u'en'
 
@@ -31,10 +31,23 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 DEFAULT_PAGINATION = 20
 THEME = 'pelican-themes/blue-penguin'
-DISQUS_SITENAME = 'yilinwei'
+DISQUS_SITENAME = u'yilinwei'
 
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['asciidoc_reader']
+PLUGINS = ['asciidoc_reader','sitemap']
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+        },
+    'changefreqs': {
+        'articles': 'weekly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+        }
+    }
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
