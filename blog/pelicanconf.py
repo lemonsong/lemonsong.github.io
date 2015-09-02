@@ -31,7 +31,7 @@ SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 20
-THEME = 'pelican-themes/blue-penguin'
+#THEME = 'pelican-themes/blue-penguin'
 DISQUS_SITENAME = u'yilinwei'
 
 PLUGIN_PATHS = ['pelican-plugins']
