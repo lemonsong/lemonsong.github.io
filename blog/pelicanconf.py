@@ -11,6 +11,7 @@ PATH = u'content'
 TIMEZONE = u'UTC'
 
 DEFAULT_LANG = u'en'
+IGNORE_FILES = ['._*']
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
