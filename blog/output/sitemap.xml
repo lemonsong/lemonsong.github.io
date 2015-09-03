@@ -4,70 +4,70 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://yilinwei.com/blog/</loc>
-<lastmod>2015-09-03T14:42:31-00:00</lastmod>
+<loc>http://yilinwei.com/output/blog/</loc>
+<lastmod>2015-09-03T16:35:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/archives.html</loc>
-<lastmod>2015-09-03T14:42:31-00:00</lastmod>
+<loc>http://yilinwei.com/output/blog/archives.html</loc>
+<lastmod>2015-09-03T16:35:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/tags.html</loc>
-<lastmod>2015-09-03T14:42:31-00:00</lastmod>
+<loc>http://yilinwei.com/output/blog/tags.html</loc>
+<lastmod>2015-09-03T16:35:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/categories.html</loc>
-<lastmod>2015-09-03T14:42:31-00:00</lastmod>
+<loc>http://yilinwei.com/output/blog/categories.html</loc>
+<lastmod>2015-09-03T16:35:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/pages/2010/12/03/my-super-post/</loc>
+<loc>http://yilinwei.com/output/blog/pages/2010/12/03/my-super-post/</loc>
 <lastmod>2010-12-05T19:30:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/category/python.html</loc>
+<loc>http://yilinwei.com/output/blog/category/python.html</loc>
 <lastmod>2010-12-05T19:30:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/tag/pelican.html</loc>
+<loc>http://yilinwei.com/output/blog/tag/pelican.html</loc>
 <lastmod>2010-12-05T19:30:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/tag/publishing.html</loc>
+<loc>http://yilinwei.com/output/blog/tag/publishing.html</loc>
 <lastmod>2010-12-05T19:30:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/author/alexis-metaireau.html</loc>
+<loc>http://yilinwei.com/output/blog/author/alexis-metaireau.html</loc>
 <lastmod>2010-12-05T19:30:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/author/conan-doyle.html</loc>
+<loc>http://yilinwei.com/output/blog/author/conan-doyle.html</loc>
 <lastmod>2010-12-05T19:30:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
