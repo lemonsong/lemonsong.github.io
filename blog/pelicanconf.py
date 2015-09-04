@@ -33,7 +33,7 @@ SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/yilinwei'),
 DEFAULT_PAGINATION = 20
 #plugin
 PLUGIN_PATHS = ["pelican-plugins"]
-PLUGINS = ["sitemap"]
+PLUGINS = ["sitemap","random_article","neighbors"]
 # 配置sitemap 插件
 SITEMAP = {
     "format": "xml",
@@ -58,6 +58,9 @@ FOUNDATION_ANALYTICS_DOMAIN = ''
 FOUNDATION_FOOTER_TEXT = 'Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.'
 FOUNDATION_PYGMENT_THEME = 'monokai'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
+# random article
+RANDOM = "random.html"
+DISPLAY_RANDOM = True
 # URL setting
 ARTICLE_URL = 'pages/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'pages/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'

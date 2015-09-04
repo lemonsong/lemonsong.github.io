@@ -71,6 +71,10 @@
 						{% for cat, articles in categories %}
 							<li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
 						{% endfor %}
+						<!--add by me-->
+						{% if DISPLAY_RANDOM %}
+                            <li><a href="{{ SITEURL }}/{{ RANDOM }}"><span class="icon-label">Random article</span></a></li>
+                        {% endif %}
 
 						<li><label>Links</label></li>
 							{% for name, link in LINKS %}
