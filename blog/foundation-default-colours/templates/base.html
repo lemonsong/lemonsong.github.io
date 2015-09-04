@@ -66,16 +66,12 @@
 				<!-- mobile side bar nav -->
 				<aside class="left-off-canvas-menu">
 					<ul class="off-canvas-list">
-						<!--<li><a href="{{ SITEURL }}">Home</a></li>-->
-						<li><a href="http://yilinwei.com">Home</a></li>
+						<li><a href="{{ SITEURL }}">Home</a></li>
 						<li><label>Categories</label></li>
 						{% for cat, articles in categories %}
 							<li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
 						{% endfor %}
-						<!--add by me-->
-						{% if DISPLAY_RANDOM %}
-                            <li><a href="{{ SITEURL }}/{{ RANDOM }}"><span class="icon-label">Random article</span></a></li>
-                        {% endif %}
+						
 
 						<li><label>Links</label></li>
 							{% for name, link in LINKS %}
@@ -109,7 +105,8 @@
 				<nav class="top-bar hide-for-small-only" data-topbar>
 					<ul class="title-area">
 						<li class="name">
-							<h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+							<!--<h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>-->
+							<h1><a href="http://yilinwei.com">{{ SITENAME }}</a></h1>
 						</li>
 					</ul>
 
@@ -118,8 +115,16 @@
 							{% for cat, articles in categories %}
 								<li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
 							{% endfor %}
+							<!--add by me-->
+                            {% if DISPLAY_RANDOM %}
+                                <li><a href="{{ SITEURL }}/{{ RANDOM }}"><span class="icon-label">Random article</span></a></li>
+                            {% endif %}
 						</ul>
-                        <ul class="right">                                                                                                                                           
+                        <ul class="right"> 
+                            <!--add by me-->
+                            {% if DISPLAY_RANDOM %}
+                                <li><a href="{{ SITEURL }}/{{ RANDOM }}"><span class="icon-label">Random article</span></a></li>
+                            {% endif %}                                                                                                                                          
                              {% for pg in PAGES | sort(attribute='index') %}                                                                                                          
                                  {% if 'http://' in pg.url -%}                                                                                                                        
                                      <li><a href="{{ pg.url }}">{{ pg.title }}</a></li>                                                                                               
