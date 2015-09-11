@@ -5,42 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yilinwei.com/blog/output/</loc>
-<lastmod>2015-09-04T15:06:12-00:00</lastmod>
+<lastmod>2015-09-11T02:39:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://yilinwei.com/blog/output/archives.html</loc>
-<lastmod>2015-09-04T15:06:12-00:00</lastmod>
+<lastmod>2015-09-11T02:39:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://yilinwei.com/blog/output/tags.html</loc>
-<lastmod>2015-09-04T15:06:12-00:00</lastmod>
+<lastmod>2015-09-11T02:39:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://yilinwei.com/blog/output/categories.html</loc>
-<lastmod>2015-09-04T15:06:12-00:00</lastmod>
+<lastmod>2015-09-11T02:39:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/output/pages/2010/12/03/my-super-post/</loc>
-<lastmod>2010-12-05T19:30:00-05:00</lastmod>
+<loc>http://yilinwei.com/blog/output/pages/2010/12/03/notes2/</loc>
+<lastmod>2010-12-03T10:20:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/output/pages/2010/12/03/notes2/</loc>
-<lastmod>2010-12-03T10:20:00-05:00</lastmod>
+<loc>http://yilinwei.com/blog/output/pages/2010/12/03/under construction/</loc>
+<lastmod>2010-12-05T19:30:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
@@ -67,8 +67,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/output/tag/pelican.html</loc>
-<lastmod>2010-12-05T19:30:00-04:56</lastmod>
+<loc>http://yilinwei.com/blog/output/tag/encode.html</loc>
+<lastmod>2010-12-03T10:20:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -81,21 +81,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://yilinwei.com/blog/output/tag/encode.html</loc>
-<lastmod>2010-12-03T10:20:00-04:56</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://yilinwei.com/blog/output/author/alexis-metaireau.html</loc>
-<lastmod>2010-12-05T19:30:00-04:56</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://yilinwei.com/blog/output/author/conan-doyle.html</loc>
+<loc>http://yilinwei.com/blog/output/tag/pelican.html</loc>
 <lastmod>2010-12-05T19:30:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -103,7 +89,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yilinwei.com/blog/output/author/yilin-wei.html</loc>
-<lastmod>2010-12-03T10:20:00-04:56</lastmod>
+<lastmod>2010-12-05T19:30:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
