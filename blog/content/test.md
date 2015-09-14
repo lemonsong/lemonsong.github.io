@@ -1,10 +1,9 @@
 Title: The website is under construction
-Date: 2010-12-03 10:20
-Modified: 2010-12-05 19:30
+Date: 2015-09-01 10:20
+Modified: 2010-09-01 19:30
 Category: Blog
-Tags: pelican, publishing
+Tags: test
 Slug: under construction
 Summary: The website is under construction
 
-###This is the content of my blog post.
-This is the content of my blog post.
+This blog is under construction. My previous blog is http://blog.sina.com.cn/jemapple

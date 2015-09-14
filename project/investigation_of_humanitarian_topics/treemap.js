@@ -1,4 +1,4 @@
-var treemargin = {top: 10, right: 10, bottom: 10, left: 10},
+var treemargin = {top: 10, right: 0, bottom: 10, left: 0},
     treewidth = 1200 - treemargin.left - treemargin.right,
     treeheight = 630 - treemargin.top - treemargin.bottom;
 

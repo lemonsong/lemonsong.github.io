@@ -1,5 +1,5 @@
-var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 900- margin.left - margin.right,
+var margin = {top: 0, right: 0, bottom: 10, left: 0},
+    width = 800- margin.left - margin.right,
 	height = 630- margin.top - margin.bottom;
 
 var nodessize =  d3.scale.linear()
@@ -168,7 +168,7 @@ var legend = svg.selectAll(".legend")
 	.attr("class", "legend")
 	.attr("transform", function(d, i) { 
 		yOff= height + (4-i)*25;
-		xOff=width+120;
+		xOff= width+30;
 		return "translate("+xOff+"," + yOff + ")"; });
 
 legend.append("rect")

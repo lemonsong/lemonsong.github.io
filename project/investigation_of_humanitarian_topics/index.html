@@ -43,19 +43,28 @@
         background-image: url(http://yilinwei.com/project/investigation_of_humanitarian_topics/img/cream_dust.png);
         font-family: 'Yantramanav', sans-serif;
     }
+    
     h1,h2{font-family:'Yantramanav';
         font-weight:700;}
+        
+    hr.style-two {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #737373, rgba(0, 0, 0, 0));
+    }
     #title{
         width: 100%;
         height: 60px;
-        background: rgb(32,124,229); /* Old browsers */
-        background: -moz-linear-gradient(-45deg,  rgb(32,124,229) 0%, rgb(73,155,234) 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgb(32,124,229)), color-stop(100%,rgb(73,155,234))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(-45deg,  rgb(32,124,229) 0%,rgb(73,155,234) 100%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(-45deg,  rgb(32,124,229) 0%,rgb(73,155,234) 100%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(-45deg,  rgb(32,124,229) 0%,rgb(73,155,234) 100%); /* IE10+ */
-        background: linear-gradient(135deg,  rgb(32,124,229) 0%,rgb(73,155,234) 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207ce5', endColorstr='#499bea',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e69de+0,3690f0+49,54a3ee+50,6db3f2+100 */
+        background: rgb(30,105,222); /* Old browsers */
+        background: -moz-linear-gradient(45deg,  rgba(30,105,222,1) 0%, rgba(54,144,240,1) 49%, rgba(84,163,238,1) 50%, rgba(109,179,242,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(30,105,222,1)), color-stop(49%,rgba(54,144,240,1)), color-stop(50%,rgba(84,163,238,1)), color-stop(100%,rgba(109,179,242,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* IE10+ */
+        background: linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e69de', endColorstr='#6db3f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
     }
     #toptitle{
         width: 100%;
@@ -164,7 +173,7 @@
         border: solid 3px #fafafa;
         border-color: #fafafa;
         border-radius:5px ;
-        font: 10px sans-serif;
+        font: 14px sans-serif;
         line-height: 12px;
         overflow: hidden;
         position: absolute;
@@ -206,21 +215,22 @@
         <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2058140" charset="utf-8"></script>
         <!-- JiaThis Button END --> 
         <br>
-        <p>Find humanitarian topics help us deal with the pressing challenges and urgent problems. The goal of this data visualization is to investigate topics about humanity. The data comes from:
+        <p>Find humanitarian topics helps us to deal with the pressing challenges and urgent problems. The goal of this data visualization is to investigate topics about humanity. The data comes from:
         <ul>
         <li><a href="https://unite.un.org/ideas/content/visualizechange-world-humanitarian-summit-data-challenge">WHS master data catelogue</a></li>
-        <li>Tweets containing #humanitarian during 5 Nov 2014 - 15 Aug 2015</li>
+        <li>26,222 tweets containing #humanitarian during 5 Nov 2014 - 15 Aug 2015</li>
         </ul>
         </p>
+       
     </div>
-    
+    <hr class="style-two"></hr>
     <div id="content1">
         <h1>We care about ... topics/subtopics</h1>
    
         <div class="container">
             <div class="row ">
-                <div class="col-md-3">
-                    <ul class="list-unstyled bigtext">
+                <div class="col-md-4">
+                    <ul class=" bigtext">
                         <li>All subtopics connects with each other</li>
                         <li>Important topics are: 
                             <ul>
@@ -229,17 +239,24 @@
                             <li>Localizing preparedness and response</li>
                             </ul>
                         </li>
+                        <li>Frequently mentioned subtopics are: 
+                            <ul>
+                            <li>1E. Subsidiarity</li>
+                            <li>1C. Programming based on the needs of affected people</li>
+                            <li>1B. Community engagement</li>
+                            </ul>
+                        </li>
                     </ul>
                     <p class="smalltext">
                         The size of nodes shows the number of times that a subtopic is mentioned in a file. The weight of links presents the number of times that two subtopics appear in the same file. Nodes are colored by topics.
                     </p>
                 </div>
-                <div class="col-md-9" id="forcelayout" >
+                <div class="col-md-8" id="forcelayout" >
                 </div>
             </div>
         </div>
     </div>
-    
+    <hr class="style-two"></hr>
     
     <div id="content2">
         <h1>Who care about ... topics</h1>
@@ -249,13 +266,13 @@
                 <div class="col-md-7" id="heatmap" ></div>
                 <div class="col-md-1"></div>
                 <div class="col-md-4">
-                    <ul class="list-unstyled bigtext">
+                    <ul class="bigtext">
                         <li>The public and stakeholder groups put forward most of topics</li>
                         <li>Different groups have various concerns: 
                             <ul>
                             <li>The public and stakeholder groups want to ensure effected people play a greater role in humanitarian action</li>
                             <li>WHS final reports focus more on new challenges</li>
-                            <li>Regions pay attention to efforts in innovative, but countries do not</li>
+                            <li>Regions pay attention to efforts of environment and investment in innovation, but countries do not</li>
                             <li>Gender and finance gap issues have not yet gain enough attention</li>
                             </ul>
                         </li>
@@ -272,7 +289,7 @@
             </div>
         </div>
     </div>
-    
+    <hr class="style-two"></hr>
     
     <div id="content3">
         <h1>Other topics ...</h1>
@@ -280,37 +297,71 @@
             <div class="row">
                 
                 <div class="col-md-12" id="treemap" ></div>
-                <ul class="list-unstyled bigtext">
+                <div class="col-md-12">
+                <ul class="bigtext">
                     <li>Most hashtags belong to location, funding, organization, politics</li>
                     <li>Some inspiring hashtags are:
                         <ul>
-                        <li>Locations: Syria, Yemen, Iraq, Ukraine, South Sudan...</li>
+                        <li>Locations: Syria, Yemen, Iraq, Ukraine, South Sudan etc.
                             <ul class="list-unstyled">
                                 <li>It is high priority to improve the humanitarian situation in these areas.</li>
                             </ul>
-                        <li>Funding</li>
+                        </li>
+                        <li>Funding
                             <ul class="list-unstyled">
                                 <li>How to collect enough funding and distribute it efficiently and fairly?</li>
                             </ul>
-                        <li>Organizations: UN, NGO, EU...</li>
+                        </li>
+                        <li>Organizations: UN, NGO, EU etc.
                             <ul class="list-unstyled">
                                 <li>How to improve these organizations' ability in humanitarian actions?</li>
                                 <li>How to involve more organizations?</li>
                             </ul>
-                        <li>People: Humanitarian heroes, Merlene Hutto Byars, Michael Jackson, Angelina Jolie</li>
+                        </li>
+                        <li>People: Humanitarian heroes, Merlene Hutto Byars, Michael Jackson, Angelina Jolie
                             <ul class="list-unstyled">
                                 <li>What is the role of the famous in humanity?</li>
                             </ul>
-                        <li>Potential topics related to humanitarian: health, career, immigration, peace, art...</li>
+                        </li>
+                        <li>Potential topics related to humanitarian: health, career, immigration, peace, art etc.
                             <ul class="list-unstyled">
                                 <li>Solve problems in these areas will make the world better.</li>
                             </ul>
+                        </li>
                         </ul>
                     </li>
-                    </ul>
-                    <p class="smalltext">
-                        All the text is real hashtag. Only hashtags of which the stem words appear more than 60 times have been included. Some hashtags are merged with other hashtags having same meaning.
-                    </p>
+                </ul>
+                </div>
+                <p class="smalltext">
+                    All the text is real hashtag. Only hashtags of which the stem words appear more than 60 times have been included. Some hashtags are merged with other hashtags having same meaning.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="style-two"></hr>
+    
+    <div id="content4">
+        <h1>3C Action</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <ul class="bigtext">
+                    <li style="font-weight:700;font-size:28px;">Collaboration</li>
+                        <ul class="list-unstyled">
+                        <li>To improve humanity, various stakeholders, including affected people, international organizations, country governments, should collaborate together.</li>
+                        </ul>
+                    <li style="font-weight:700;font-size:28px;">Concentration</li>
+                        <ul class="list-unstyled">
+                        <li>To improve humanity, we should concentrate on solving humanitarian issues in certain areas, such as Syria, Yemen and Iraq, and deal with influential humanitarian events like Nepal earthquake.</li>
+                        </ul>
+                    
+                    <li style="font-weight:700;font-size:28px;">Creativity</li>
+                        <ul class="list-unstyled">
+                        <li>To improve humanity, we must use new technology, such as <abbr title="Unmanned Aerial Vehicle" class="initialism">UAV</abbr>, and finde creative method like social enterprise and celebrity effect.</li>
+                        </ul>
+                </ul>
+                </div>
             </div>
         </div>
     </div>
