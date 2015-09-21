@@ -34,7 +34,7 @@ var brush = d3.svg.brush()
 // Root panel.
 var svg = d3.select("#scatterplot").append("svg:svg")
     .attr("width", 610)
-    .attr("height", 800)
+    .attr("height", 650)
     .append("svg:g")
     .attr("transform", "translate(30,55)");
 

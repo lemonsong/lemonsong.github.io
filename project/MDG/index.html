@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Data visualiation of humanitarian topics for WHS data challenge.">
+		<meta name="description" content="Statistical analysis and data visualiation of the Millennium Development Goals (MDGs) and least developed country (LDC) .">
         <meta name="author" content="Yilin Wei 魏艺琳">
 
 		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
@@ -70,24 +70,6 @@
         font-weight:700;
     }
     
-    .bigtext{
-        color:#207ce5;
-        font-size:150%;
-    }
-    
-    .smalltext{
-        color:#737373;
-    }
-    
-    #content0, #content1, #content2, #content3,#content4{
-        width: 1200px;
-        margin:20px auto;
-        padding:20px;
-    }
-    .textbox{
-        padding:20px;
-        background-color: #6997ef;
-    }
    
     #stargraph{
         width: 600px;
@@ -120,16 +102,6 @@
     }
     
 	/* css for force layout */
-	.node {
-		stroke: #fff;
-		stroke-width: 1.5px;
-	}
-	.link {
-		stroke: #999;
-	}
-	.legend{
-	    width:800px;
-	}
     .tooltip {
         position: absolute;	
         text-align: left;			
@@ -227,6 +199,10 @@
             <script type="text/javascript">
             var jiathis_config = {data_track_clickback:'true'};
             </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2058140" charset="utf-8"></script>
+            <!-- JiaThis Button END --> 
+            <br>
+            <br>
             <p>In 2000, 189 United Nations member states(193 currently) and at least 23 international organizations
             discussed together and established the Millennium Development Goals (MDGs), a framework of 
             eight goals reshaping decision-making in developed and developing countries. Each goal includes several 
@@ -239,7 +215,7 @@
             connecting targets of MDGs with LDC classification.</p>
             <p>With standardization, principal component analysis and linear regression, the classification 
             model is:</p>
-            <p class="">
+            <p>
             <font color="#e74a2b">Country is LDC or not</font> = 
             <br>0.0200 * (Standardization of <font color="#e74a2b">Target 1.A: Halve, between 1990 and 2015, the proportion of people whose income is less than one dollar a day</font>) 
             <br>+ 0.0317 * (Standardization of <font color="#e74a2b">Target 1.C: Halve, between 1990 and 2015, the proportion of people who suffer from hunger</font>) 

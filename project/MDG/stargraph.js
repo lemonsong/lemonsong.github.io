@@ -1,6 +1,6 @@
 var margin = {top: 40, right: 40, bottom: 90, left: 280},
 width = 600 - margin.left - margin.right,
-height = 3800 - margin.top - margin.bottom;
+height = 3960 - margin.top - margin.bottom;
 
 var xscale=d3.scale.linear()
     .domain([-0.321438795,1.254075157])
@@ -87,22 +87,31 @@ var legend = svg.selectAll(".legend")
     .attr("transform", function(d, i) { return "translate(" +(i*180+25) + ", -15 )"; })
     .style("fill","#b5d6f7")
     .style("font-weight",700);
+// Legend.
+var starlegend = svg.selectAll("g.legend")
+    .data(['Real LDC Classification','Prediction of LDC'])
+    .enter().append("svg:g")
+    .attr("class", "legend")
+    .attr("transform", function(d, i) { return "translate(-250," + (i * 20-10 ) + ")"; });
 
-var realldc = svg.selectAll(".star")
-        .data(data)
-        .enter().append("polygon")
-        .attr("id", "realldc")
-        .style("fill", "#f9f9cc")     // remove any fill colour
-        .attr("points", function(d){
-        return xscale(d.IsLDC2014)+','+(yscale(d.Country)-prin1scale(d.Prin1))+' '+
-                (xscale(d.IsLDC2014)-prin2scale(d.Prin2)/3)+','+(yscale(d.Country)-prin1scale(d.Prin1)/3)+' '+
-                (xscale(d.IsLDC2014)-prin2scale(d.Prin2))+','+yscale(d.Country)+' '+
-                (xscale(d.IsLDC2014)-prin2scale(d.Prin2)/3)+','+(yscale(d.Country)+prin3scale(d.Prin3)/3)+' '+
-                xscale(d.IsLDC2014)+','+(yscale(d.Country)+prin3scale(d.Prin3))+' '+
-                (xscale(d.IsLDC2014)+prin4scale(d.Prin4)/3)+','+(yscale(d.Country)+prin3scale(d.Prin3)/3)+' '+
-                (xscale(d.IsLDC2014)+prin4scale(d.Prin4))+','+yscale(d.Country)+' '+
-                (xscale(d.IsLDC2014)+prin4scale(d.Prin4)/3)+','+(yscale(d.Country)-prin1scale(d.Prin1)/3);});
-                
+starlegend.append("polygon")
+    .attr("points","0,-8 -3,-3 -8,0 -3,3 0,8 3,3 8,0 3,-3")
+    .style("fill",function (d){ 
+        if (d === 'Real LDC Classification')
+            return "#f9f9cc";
+        else
+            return "#ecec59";});
+
+starlegend.append("svg:text")
+    .attr("x", 12)
+    .attr("dy", ".31em")
+    .text(function(d) { return d;})
+    .style("fill",function (d){ 
+        if (d === 'Real LDC Classification')
+            return "#f9f9cc";
+        else
+            return "#ecec59";});
+
 var connect = svg.selectAll(".star")
         .data(data)
         .enter().append("polygon")
@@ -122,6 +131,22 @@ var connect = svg.selectAll(".star")
                 (xscale(d.IsLDC2014)-prin2scale(d.Prin2)/3)+','+(yscale(d.Country)+prin3scale(d.Prin3)/3)+' '+
                 xscale(d.predLDC)+','+(yscale(d.Country)+prin3scale(d.Prin3))+' '+
                 xscale(d.predLDC)+','+(yscale(d.Country)-prin1scale(d.Prin1));});
+
+var realldc = svg.selectAll(".star")
+        .data(data)
+        .enter().append("polygon")
+        .attr("id", "realldc")
+        .style("fill", "#f9f9cc")     // remove any fill colour
+        .attr("points", function(d){
+        return xscale(d.IsLDC2014)+','+(yscale(d.Country)-prin1scale(d.Prin1))+' '+
+                (xscale(d.IsLDC2014)-prin2scale(d.Prin2)/3)+','+(yscale(d.Country)-prin1scale(d.Prin1)/3)+' '+
+                (xscale(d.IsLDC2014)-prin2scale(d.Prin2))+','+yscale(d.Country)+' '+
+                (xscale(d.IsLDC2014)-prin2scale(d.Prin2)/3)+','+(yscale(d.Country)+prin3scale(d.Prin3)/3)+' '+
+                xscale(d.IsLDC2014)+','+(yscale(d.Country)+prin3scale(d.Prin3))+' '+
+                (xscale(d.IsLDC2014)+prin4scale(d.Prin4)/3)+','+(yscale(d.Country)+prin3scale(d.Prin3)/3)+' '+
+                (xscale(d.IsLDC2014)+prin4scale(d.Prin4))+','+yscale(d.Country)+' '+
+                (xscale(d.IsLDC2014)+prin4scale(d.Prin4)/3)+','+(yscale(d.Country)-prin1scale(d.Prin1)/3);});
+                
                 
 var predldc = svg.selectAll(".star")
         .data(data)
@@ -151,7 +176,6 @@ var predldc = svg.selectAll(".star")
                 (xscale(d.predLDC)+prin4scale(d.Prin4))+','+yscale(d.Country)+' '+
                 (xscale(d.predLDC)+prin4scale(d.Prin4)/3)+','+(yscale(d.Country)-prin1scale(d.Prin1)/3);});
 
-
                 
 var countrylabel = svg.selectAll(".countrylabel")
         .data(data)
@@ -161,7 +185,7 @@ var countrylabel = svg.selectAll(".countrylabel")
         .attr("y",function(d) { return  yscale(d.Country); })
         //.attr("textLength", "220") // set text length
         //.attr("lengthAdjust", "spacing")
-        //.attr("dy", ".50em")   
+        .attr("dy", ".50em")   
         .style("text-anchor", "end")
         .style("fill","#b5d6f7")
         .style("font-weight",300);
@@ -187,7 +211,7 @@ countrylabel.on('mouseout',function(d) {
 
 
 
-
+realldc.append("title").text(function(d) { return d.Country; });
 
 
 
