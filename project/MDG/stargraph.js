@@ -106,6 +106,7 @@ starlegend.append("svg:text")
     .attr("x", 12)
     .attr("dy", ".31em")
     .text(function(d) { return d;})
+    .style("font-weight",300)
     .style("fill",function (d){ 
         if (d === 'Real LDC Classification')
             return "#f9f9cc";
@@ -183,13 +184,10 @@ var countrylabel = svg.selectAll(".countrylabel")
         .text(function(d) { return d.Country; })
         .attr("x", 15)
         .attr("y",function(d) { return  yscale(d.Country); })
-        //.attr("textLength", "220") // set text length
-        //.attr("lengthAdjust", "spacing")
         .attr("dy", ".50em")   
         .style("text-anchor", "end")
         .style("fill","#b5d6f7")
         .style("font-weight",300);
-//"100,50, 200,150, 300,50");  // x,y points 
 
 countrylabel.on('mouseover',function(d) {
     d3.select(this).style("fill","#e0df19");
