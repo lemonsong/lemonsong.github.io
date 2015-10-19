@@ -2,6 +2,9 @@
 var topicChart = dc.rowChart("#dc-topic");
 var authorChart = dc.rowChart("#dc-author");
 var magazineChart = dc.rowChart("#dc-magazine");
+var orgChart = dc.rowChart("#dc-org");
+var locationChart = dc.rowChart("#dc-location");
+
 var yearChart = dc.barChart("#dc-number");
 var dataTable = dc.dataTable("#dc-table-graph");
 
@@ -98,6 +101,44 @@ d3.csv("obesity.csv", function (data) {
 		.elasticX(true)
 		.xAxis().ticks(4);
 	magazineChart.ordering(function(d){ return -d.value });
+	
+	//Organization
+	var orgDimension = facts.dimension(function (d) {return d.Organization;});
+
+	var orgGroup = orgDimension.group().reduceCount(function(d) { return d.Organization; });
+
+	orgChart.width(300)
+		.height(30000)
+		.margins({top: 5, left: 10, right: 10, bottom: 20})
+		.dimension(orgDimension)
+		.group(orgGroup)
+		.ordinalColors(["#efee69","#efab69","#ef696a","#ab69ef","#696aef","#69adef","#69efee","#adef69"])
+		.label(function (d){
+			return d.key;
+		})
+		.title(function(d){return d.value;})
+		.elasticX(true)
+		.xAxis().ticks(4);
+	orgChart.ordering(function(d){ return -d.value });
+	
+	//Location
+	var locationDimension = facts.dimension(function (d) {return d.Location;});
+
+	var locationGroup = locationDimension.group().reduceCount(function(d) { return d.Location; });
+
+	locationChart.width(300)
+		.height(30000)
+		.margins({top: 5, left: 10, right: 10, bottom: 20})
+		.dimension(locationDimension)
+		.group(locationGroup)
+		.ordinalColors(["#efee69","#efab69","#ef696a","#ab69ef","#696aef","#69adef","#69efee","#adef69"])
+		.label(function (d){
+			return d.key;
+		})
+		.title(function(d){return d.value;})
+		.elasticX(true)
+		.xAxis().ticks(4);
+	locationChart.ordering(function(d){ return -d.value });
 
 	//Number of Articles by Year
 	var yearDimension = facts.dimension(function(d) {

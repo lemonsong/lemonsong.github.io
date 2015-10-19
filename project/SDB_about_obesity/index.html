@@ -75,6 +75,7 @@
         margin-left:20px ;
         color: #fcfcfc;
         margin-top: 10px;
+        font-size: 30px;
     }
     #head{
         width: 100%;
@@ -140,7 +141,12 @@
 	/* css for dcgraph */
 	#dc-topic,#dc-author, #dc-magazine{
     width: 30%;
-    height: 350px;
+    height: 250px;
+    overflow: scroll;
+    }
+    #dc-location,#dc-org{
+    width: 30%;
+    height: 600px;
     overflow: scroll;
     }
     #dc-table-graph{
@@ -180,7 +186,14 @@
 	
     <div style="height:60px;">
     </div>
-    <div id="content0">
+    
+    <div id='content0'>
+        <h2>Analysis of SDB Research about Obesity</h2>
+        <h3><a href="http://yilinwei.com/project/SDB_about_obesity/SDBtextmining2.pdf">Here</a> is the slides</h3>
+    </div>
+    <hr class="style-two"></hr>
+
+    <div id="content1">
 
     	<h2>SDB Research Papers about Obesity Social Network<h2>
     	<div class="container">
@@ -192,7 +205,7 @@
     </div>
     <hr class="style-two"></hr>
 
-	<div id='content1'>
+	<div id='content2'>
 		<div class="dc-data-count" style="float: left;">
 			<h2>SDB Research Papers about Obesity Dashboard
 			<small><span>
@@ -207,30 +220,67 @@
 		</div>
 		<div class="container">
 			<div class='row'>
-				<div class='col-md-4' id='dc-topic'>
-					<h4>Number of Articles by Topics
+				<div class='col-md-4'>
+					<div class='container' >
+					<div class=' row '>
+					<div class='col-md-12' id='dc-topic'>
+						<h4>Number of Articles by Topics
+							<span>
+								<small><a class="reset "
+								href="javascript:topicChart.filterAll();dc.redrawAll();"
+								style="display: none;">
+								reset
+								</a></small>
+							</span>
+						</h4>
+					</div>
+					</div>
+					</div>
+					<div class='container' >
+					<div class=' row '>
+					<div class='col-md-12' id='dc-author'>
+						<h4>Number of Articles by First Author
+							<span>
+								<small><a class="reset "
+								href="javascript:authorChart.filterAll();dc.redrawAll();"
+								style="display: none;">
+								reset
+								</a></small>
+							</span>
+						</h4>
+					</div>
+					</div>
+					</div>
+					<div class='container' >
+					<div class=' row '>
+					<div class='col-md-12' id='dc-magazine'>
+						<h4>Number of Articles by Magazine
+							<span>
+								<small><a class="reset "
+								href="javascript:magazineChart.filterAll();dc.redrawAll();"
+								style="display: none;">
+								reset
+								</a></small>
+							</span>
+						</h4>
+					</div>
+					</div>
+					</div>
+
+				</div>
+				<div class='col-md-4'  id='dc-org'>
+					<h4>Number of Articles by Organization
 						<span>
 							<small><a class="reset "
-							href="javascript:topicChart.filterAll();dc.redrawAll();"
+							href="javascript:magazineChart.filterAll();dc.redrawAll();"
 							style="display: none;">
 							reset
 							</a></small>
 						</span>
 					</h4>
 				</div>
-				<div class='col-md-4' id='dc-author'>
-					<h4>Number of Articles by First Author
-						<span>
-							<small><a class="reset "
-							href="javascript:authorChart.filterAll();dc.redrawAll();"
-							style="display: none;">
-							reset
-							</a></small>
-						</span>
-					</h4>
-				</div>
-				<div class='col-md-4' id='dc-magazine'>
-					<h4>Number of Articles by Magazine
+				<div class='col-md-4'  id='dc-location'>
+					<h4>Number of Articles by Location
 						<span>
 							<small><a class="reset "
 							href="javascript:magazineChart.filterAll();dc.redrawAll();"
