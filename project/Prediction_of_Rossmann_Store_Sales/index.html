@@ -112,7 +112,7 @@
 		font-size: 22px;
 	}
     
-    .graphalign{text-align:center} 
+    #graph{margin: 0 auto;} 
     
 
     #content0, #content1, #content2, #content3,#content4{
@@ -161,9 +161,11 @@
     <div id='content0'>
         <h2>Introduction</h2>
         <p class="text">This project is based on <a href="https://www.kaggle.com/c/rossmann-store-sales">Kaggle Competition: Rossmann Store Sales</a>. The goal is to predict sales of each Rossmann store in everyday of future three months. Based on the prediction, stores can arrange supply chain management, investment and workforce.</p>
-        <p class="text">Rossmann provides sales and store data for 1,115 stores of nearly 3 years. The analysis process is as follows:</br></p>
-        <div class="graphalign"><img class="img-responsive" src="Analysis_Process.png" alt="Analysis Process of Prediction of Rossmann Store Sales"></br></div>
+        <p class="text">Rossmann provides sales and store data for 1,115 stores of nearly 3 years. The analysis process is as follows:</p></br>
+        <div class="container row col-md-7 "><img class="img-responsive" src="Analysis_Process.png" alt="Analysis Process of Prediction of Rossmann Store Sales"></div>
+        </br>
         <p class="text">I firstly merge two tables into one. Because store conducting long-term promotion has different variables from that not conducting long-term promotion, I separately make prediction for these two types of stores. Besides, the test data does not have variable Number of Customers. However, this is a very important variable. Therefore, I predict number of customers for test dataset, and then predict sales. I use RMSPE to evaluate my prediction based on different algorithms and different time periods.</p>
+        </br>
         <p class="text">The following documents will give you more details about this project.</p>
         </h3>
     </div>
