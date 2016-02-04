@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Statistical analysis and data visualiation of the Millennium Development Goals (MDGs) and least developed country (LDC) .">
+        <meta name="author" content="Yilin Wei 魏艺琳">
+
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>MDG</title>
+
+		
+		<link type="text/css" href="/../css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap -->
+		
+		<script type="text/javascript" src="/project/js/d3.min.js"></script><!-- D3.js -->
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="/project/js/bootstrap.min.js"></script>
+        <!--<script type="text/javascript" src="heatmap.js"></script>-->
+  
+        <link rel="shortcut icon" type="image/x-icon" href="img/tagpic.ico" media="screen" />
+        <!--<link href='https://fonts.googleapis.com/css?family=Yantramanav:400,500,700' rel='stylesheet' type='text/css'>-->
+        <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-45111796-3', 'auto');
+        ga('send', 'pageview');
+
+        </script>
+	</head>
+	
+	<style>
+	
+	body{
+        width: 100%;
+        height: 100%;
+        background-image: url(http://yilinwei.com/project/investigation_of_humanitarian_topics/img/cream_dust.png);
+        font-family: 'Source Sans Pro', sans-serif;    }
+    
+    h1,h2{font-family:'Source Sans Pro';}
+    
+    .graph{text-align:center;}
+    
+    .right{left:10px}
+       
+    hr.style-two {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #737373, rgba(0, 0, 0, 0));
+    }
+
+    #toptitle{
+        color: #11579b;
+        font-family: 'Poiret One', cursive;
+        font-size:48px;
+        font-weight:700;
+    }
+    
+   
+    #stargraph{
+        width: 600px;
+        background: rgba(44,138,233,1);
+        background: -moz-linear-gradient(top, rgba(44,138,233,1) 0%, rgba(12,62,113,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(44,138,233,1)), color-stop(100%, rgba(12,62,113,1)));
+        background: -webkit-linear-gradient(top, rgba(44,138,233,1) 0%, rgba(12,62,113,1) 100%);
+        background: -o-linear-gradient(top, rgba(44,138,233,1) 0%, rgba(12,62,113,1) 100%);
+        background: -ms-linear-gradient(top, rgba(44,138,233,1) 0%, rgba(12,62,113,1) 100%);
+        background: linear-gradient(to bottom, rgba(44,138,233,1) 0%, rgba(12,62,113,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c8ae9', endColorstr='#0c3e71', GradientType=0 );
+    }
+    #footer{
+        width: 100%;
+        height: 60px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cfe7ff+0,c6e1fc+44,bbdaf9+100 */
+        background: rgb(207,231,255); /* Old browsers */
+        background: -moz-linear-gradient(45deg,  rgb(207,231,255) 0%, rgb(198,225,252) 44%, rgb(187,218,249) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgb(207,231,255)), color-stop(44%,rgb(198,225,252)), color-stop(100%,rgb(187,218,249))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(45deg,  rgb(207,231,255) 0%,rgb(198,225,252) 44%,rgb(187,218,249) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(45deg,  rgb(207,231,255) 0%,rgb(198,225,252) 44%,rgb(187,218,249) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(45deg,  rgb(207,231,255) 0%,rgb(198,225,252) 44%,rgb(187,218,249) 100%); /* IE10+ */
+        background: linear-gradient(45deg,  rgb(207,231,255) 0%,rgb(198,225,252) 44%,rgb(187,218,249) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfe7ff', endColorstr='#bbdaf9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    }
+    .footertext{
+        text-align: center;
+        vertical-align:middle;
+    }
+    
+	/* css for force layout */
+    .tooltip {
+        position: absolute;	
+        text-align: left;			
+        padding: 2px;
+        font-family: 'Source Sans Pro',sans-serif;	
+        font-weight:400;	
+        background: #fcfcfc;	
+        padding:2px;
+        border: 5px;	
+        border-style:solid;
+        border-radius: 8px;	
+    }  
+
+
+    /*scatter plot*/
+    .axis {
+      shape-rendering: crispEdges;
+    }
+
+    .axis line {
+      stroke: #ddd;
+      stroke-width: .5px;
+    }
+
+    .axis path {
+      display: none;
+    }
+
+    rect.extent {
+      fill: #000;
+      fill-opacity: .125;
+      stroke: #fff;
+    }
+
+    rect.frame {
+      fill: #fff;
+      fill-opacity: .7;
+      stroke: #aaa;
+    }
+
+    circle {
+      fill: #ccc;
+      fill-opacity: .5;
+    }
+
+    .legend circle {
+      fill-opacity: 1;
+    }
+
+    .legend text {
+      font-size: 18px;
+      font-style: oblique;
+    }
+
+    .cell text {
+      pointer-events: none;
+    }
+
+    .is{
+        fill:#e74a2b;
+    }
+    .not{
+        fill: #2b6ae7;
+    }
+    
+
+    
+	</style>
+	<body>
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+	
+
+    <div class="row">
+        
+        <div class="col-md-6" id="stargraph" style="height:100%"></div>
+        <div class="col-md-6 right">
+            
+            <div id='toptitle'>Achieving which target helps a country not being LDC?</div>
+            <blockquote class="blockquote-reverse">
+                <p>“2015 is a milestone year. We will complete the Millennium Development Goals.
+                We are forging a bold vision for sustainable development, including a set of sustainable
+                development goals. And we are aiming for a new, universal climate agreement.”</p>
+                <footer>UN Secretary-General Ban Ki-moon</footer>
+            </blockquote>
+            <!-- JiaThis Button BEGIN -->
+            <div class="jiathis_style_24x24">
+            <a class="jiathis_button_fb"></a>
+            <a class="jiathis_button_twitter"></a>
+            <a class="jiathis_button_linkedin"></a>
+            <a class="jiathis_button_douban"></a>
+            <a class="jiathis_button_tsina"></a>
+            <a href="http://www.jiathis.com/share?uid=2058140" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <a class="jiathis_counter_style"></a>
+            </div>
+            <script type="text/javascript">
+            var jiathis_config = {data_track_clickback:'true'};
+            </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2058140" charset="utf-8"></script>
+            <!-- JiaThis Button END --> 
+            <br>
+            <br>
+            <p align="justify">In 2000, 189 United Nations member states(193 currently) and at least 23 international organizations
+            discussed together and established the Millennium Development Goals (MDGs), a framework of 
+            eight goals reshaping decision-making in developed and developing countries. Each goal includes several 
+            specific targets.</p>
+            <p align="justify">A least developed country (LDC) is a country that, according to the United Nations, 
+            exhibits the lowest indicators of socioeconomic development, with the lowest Human 
+            Development Index ratings of all countries in the world.[Wikipedia] Since this classification 
+            has been put forward, four countries graduated to developing country.</p>
+            <p align="justify">The goal of analyzing MDG data is to help LDC find what should they improve to graduate from LDC via 
+            connecting targets of MDGs with LDC classification.</p>
+            <p align="justify">With standardization, principal component analysis and linear regression, the classification 
+            model is:</p>
+            <p>
+            <font color="#e74a2b">Country is LDC or not</font> = 
+            <br>0.0200 * (Standardization of <font color="#e74a2b">Target 1.A: Halve, between 1990 and 2015, the proportion of people whose income is less than one dollar a day</font>) 
+            <br>+ 0.0317 * (Standardization of <font color="#e74a2b">Target 1.C: Halve, between 1990 and 2015, the proportion of people who suffer from hunger</font>) 
+            <br>- 0.0496 * (Standardization of <font color="#e74a2b">Target 2.A: Ensure that, by 2015, children everywhere, boys and girls alike, will be able to complete a full course of primary schooling</font>) 
+            <br>- 0.0072 * (Standardization of <font color="#e74a2b">Target 3.A: Eliminate gender disparity in primary and secondary education, preferably by 2005, and in all levels of education no later than 2015</font>) 
+            <br>+ 0.0511 * (Standardization of <font color="#e74a2b">Target 4.A: Reduce by two-thirds, between 1990 and 2015, the under-five mortality rate</font>) 
+            <br>+ 0.0543 * (Standardization of <font color="#e74a2b">Target 5.A: Reduce by three quarters, between 1990 and 2015, the maternal mortality ratio</font>) 
+            <br>+ 0.0004 * (Standardization of <font color="#e74a2b">Target 6.A: Have halted by 2015 and begun to reverse the spread of HIV/AIDS</font>) 
+            <br>+ 0.0463 * (Standardization of <font color="#e74a2b">Target 6.C: Have halted by 2015 and begun to reverse the incidence of malaria and other major diseases</font>) 
+            <br>- 0.0094 * (Standardization of <font color="#e74a2b">Target 7.A: Integrate the principles of sustainable development into country policies and programmes and reverse the loss of environmental resources</font>) 
+            <br>- 0.0534 * (Standardization of <font color="#e74a2b">Target 7.C: Halve, by 2015, the proportion of people without sustainable access to safe drinking water and basic sanitation</font>) 
+            <br>- 0.0126 * (Standardization of <font color="#e74a2b">Target 7.D: By 2020, to have achieved a significant improvement in the lives of at least 100 million slum dwellers</font>) 
+            <br>+ 0.0130 * (Standardization of <font color="#e74a2b">Target 8.A: Develop further an open, rule-based, predictable, non-discriminatory trading and financial system</font>) 
+            <br>+ 0.0138 * (Standardization of <font color="#e74a2b">Target 8.B: Address the special needs of the least developed countries</font>) 
+            <br>- 0.0006 * (Standardization of <font color="#e74a2b">Target 8.C: Address the special needs of landlocked countries and small island developing States</font>) 
+            <br>+ 0.0153 * (Standardization of <font color="#e74a2b">Target 8.D: Deal comprehensively with the debt problems of developing countries through national and international measures in order to make debt sustainable in the long term</font>) 
+            <br>+ 0.0393 * (Standardization of <font color="#e74a2b">Target 1.B: Achieve full and productive employment and decent work for all, including women and young people</font>) 
+            <br>- 0.0103 * (Standardization of <font color="#e74a2b">Target 8.F: In cooperation with the private sector, make available the benefits of new technologies, especially information and communications</font>) 
+            <br>- 0.0302 * (Standardization of <font color="#e74a2b">Target 5.B: Achieve, by 2015, universal access to reproductive health</font>) 
+            <br>- 0.0430 * (Standardization of <font color="#e74a2b">Target 6.B: Achieve, by 2010, universal access to treatment for HIV/AIDS for all those who need it</font>) 
+            <br>+ 0.0137 * (Standardization of <font color="#e74a2b">Target 7.B: Reduce biodiversity loss, achieving, by 2010, a significant reduction in the rate of loss</font>) 
+            <br>- 0.0069 * (Standardization of <font color="#e74a2b">Number of Population</font>)
+            </p>
+            <p align="justify">This model shows that <font color="#e74a2b">Target 5.A: Reduce by three quarters, between 1990 and 2015, the maternal mortality ratio</font> 
+            and <font color="#e74a2b">Target 7.C: Halve, by 2015, the proportion of people without sustainable access to safe drinking water and basic sanitation</font> 
+            are more important that other target in helping a LDC to become developing country.<p>
+            <p align="justify">The left graph shows the result of this classification model. The white star is the real LDC category; the yellow star is the predicted LDC category. The left the star is, the less likely the country is LDC.</p>
+            <h2>Statistical Analysis</h2>
+            <div class="row">
+                <div class="col-md-3"  align="justify">I use 20 targets and number of population in 2012 as independent variables. 
+                The right table shows that the variables range variously, so we need standardize them firstly.</div>
+                <div class="graph col-md-9"><img src="desc.png" alt="Descriptive Analysis"></img></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3" align="justify">The Pearson Correlation Coefficients table indicates that some variables relates with each other. 
+                I use principle component analysis to reduce dimension and avoid collinear.</div>
+                <div class="graph col-md-9"><a href="rsquare.png"><img src="rsquare.png" alt="R Square" style="height:60%;width:60%;"></img></a></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3" align="justify">The cumulative eigenvalues presents that 
+                6 principle components (Prin1 - Prin6) can explain 72.91 percent of variance. Therefore, I only 
+                use Prin1 - Prin6 in following linear regression.</div>
+                <div class="graph col-md-9"><a href="pca.png"><img src="eigenvalues.png" alt="PCA"></img></a></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3" align="justify">Only Prin1 - Prin4 are selected in stepwise linear regression. 
+                The p value is less than 0.05, which is statistically significant. The model is accepted.</div>
+                <div class="graph col-md-9"><img src="lr.png" alt="Linear Regression"></img></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3" align="justify">In the left graph, the distance between star center and each angle presents the value of each principle component as shown in the right graph.</div>
+                <div class="graph col-md-9"><img src="star.png" alt="Explaination of Star" style="height:90%;width:90%;"></img></div>
+            </div>
+            <br>
+            <p align="justify">The following interactive graph shows distribution of LDC and non-LDC on Prin1 - Prin4.</p>
+            <div id="scatterplot" class="graph"></div>
+        </div>
+    </div>
+    <div id="footer">
+	    <p class="footertext">Thanks for the <a href="http://d3js.org/">D3</a>, <a href="http://getbootstrap.com/">Bootstrap</a> and <a href="http://glyphicons.com/">Glyphicon</a> open source community.</p>
+	    <div class="footertext">
+	    <a href="http://yilinwei.com/"><span class="glyphicon glyphicon-home" aria-label="website" aria-hidden="true"></span></a>
+	                
+        <a href="mailto:ywei12@stevens.edu" target="_top"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+        </div>
+	</div> 
+
+
+	<script type="text/javascript" src="stargraph.js"></script>
+
+	<script type="text/javascript" src="scatterplot.js"></script>
+	
+	
+	
+	</body>
+  
+</html>
