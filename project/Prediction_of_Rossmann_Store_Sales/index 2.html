@@ -4,15 +4,20 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Prediction of Rossmann Store Sales">
-		<meta name="keywords" content="Sales prediction, machine learning, algorithms, visualization, Kaggle">
+		<meta name="description" content="Data visualiation of Sleep-Disordered Breathing(SDB) Research Papers about Obesity">
+		<meta name="keywords" content="Sleep-Disordered Breathing, SDB, obesity, d3.js, dc.js, social network analysis, dashboard">
         <meta name="author" content="Yilin Wei 魏艺琳">
 
 		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-		<title>Prediction of Rossmann Store Sales</title>
+		<title>SDB Research on Obesity</title>
 
 		
 		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap -->
+		<link type='text/css' href='css/dc.css' rel='stylesheet'>
+		
+		<script type="text/javascript" src="js/d3.min.js"></script><!-- D3.js -->
+		<script type='text/javascript' src='js/crossfilter.js'></script>
+  		<script type='text/javascript' src='js/dc.js'></script>
         <link rel="shortcut icon" type="image/x-icon" href="img/tagpic.ico" media="screen" />
         <link href='https://fonts.googleapis.com/css?family=Yantramanav:400,500,700' rel='stylesheet' type='text/css'>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -44,19 +49,12 @@
     
     h1,h2{font-family:'Yantramanav';
         font-weight:700;}
-     
-    .text{
-        font-family:'Yantramanav';
-        font-weight:400;
-        font-size: 20px;
-    }   
-    
+        
     hr.style-two {
         border: 0;
         height: 1px;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #737373, rgba(0, 0, 0, 0));
     }
-    
     #title{
         width: 100%;
         height: 60px;
@@ -69,8 +67,8 @@
         background: -ms-linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* IE10+ */
         background: linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* W3C */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e69de', endColorstr='#6db3f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
     }
-    
     #toptitle{
         width: 100%;
         height: 100%;
@@ -113,7 +111,6 @@
 	}
     
     .graphalign{text-align:center} 
-    
 
     #content0, #content1, #content2, #content3,#content4{
         width: 1200px;
@@ -142,50 +139,180 @@
         vertical-align:middle;
     }
     
+	/* css for force layout */
+	.link {
+		stroke: #999;
+	}
+    #forcelayout text {text-shadow:1px 0px 4px #fff;}
+    
+	/* css for dcgraph */
+	#dc-topic,#dc-author, #dc-magazine{
+    width: 30%;
+    height: 250px;
+    overflow: scroll;
+    }
+    #dc-location,#dc-org{
+    width: 30%;
+    height: 600px;
+    overflow: scroll;
+    }
+    #dc-table-graph{
+    width: 100%;
+    height: 400px;
+    overflow: scroll;
+    }
+    .dc-chart g.row text {fill:#7a7a7a;text-shadow:1px 0px 4px #fff;}
 	
     
 	</style>
 	<body>
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 	<div id="title" class="navbar-fixed-top">
 		<div class='row'>
-    		<div class='col-md-10'><h1 id="toptitle" >Prediction of Rossmann Store Sales</h1></div>
+    		<div class='col-md-10'><h1 id="toptitle" >Sleep-Disordered Breathing(SDB) Research Papers about Obesity</h1></div>
 	    	<div class='col-md-1 text-right'></div>
 			<div class='col-md-1 text-center'><a href="http://yilinwei.com/gallery.html"><h3>Gallery</h3></a></div>
-		</div>
+		</div> 
 	</div>
 	
 	
     <div style="height:60px;">
     </div>
-    
-    <div id='content0'>
-        <h2>Introduction</h2>
-        <p class="text">This project is based on <a href="https://www.kaggle.com/c/rossmann-store-sales">Kaggle Competition: Rossmann Store Sales</a>. The goal is to predict sales of each Rossmann store in everyday of future three months. Based on the prediction, stores can arrange supply chain management, investment and workforce.</p>
-        <p class="text">Rossmann provides sales and store data for 1,115 stores of nearly 3 years. The analysis process is as follows:</br></p>
-        <div class="graphalign"><img class="img-responsive" src="Analysis_Process.png" alt="Analysis Process of Prediction of Rossmann Store Sales"></br></div>
-        <p class="text">I firstly merge two tables into one. Because store conducting long-term promotion has different variables from that not conducting long-term promotion, I separately make prediction for these two types of stores. Besides, the test data does not have variable Number of Customers. However, this is a very important variable. Therefore, I predict number of customers for test dataset, and then predict sales. I use RMSPE to evaluate my prediction based on different algorithms and different time periods.</p>
-        <p class="text">The following documents will give you more details about this project.</p>
-        </h3>
-    </div>
+
 
     <div id="content1">
-    	<h2>Documents<h2>
-    	<ul class = "text">
-    		<li>Poster: <a href="Prediction of Rossmann Store Sales Poster.pdf">Prediction of Rossmann Store Sales Poster.pdf</a></li>
-    		<li>Report: <a href="Prediction_of_Rossmann_Store_Sales_Report.pdf">Prediction of Rossmann Store Sales Report.pdf</a></li>
-    		<li>Code</li>
-    			<ul>
-    				<li>Sample Code</li>
-    				<ul>
-    					<li>Preprocess: <a href="getdata.ipynb">getdata.ipynb</a></li>
-    					<li>Predict Number of Customers: <a href="predictcustomers.ipynb">predictcustomers.ipynb</a></li>
-    					<li>Predict Sales: <a href="predictionwtcustomers.ipynb">predictionwtcustomers.ipynb</a></li>
-    				</ul>
-    				<li>Download All: <a href="Prediction_of_Rossmann_Store_Sales_Code.zip">Prediction_of_Rossmann_Store_Sales_Code.zip</a></li>
-    			</ul>
-    	</ul>
+
+    	<h2>SDB Research Papers about Obesity Social Network<h2>
+    		<div class="text">The graph present the social network of researcher about obesity and SDB. We can easily detect several closely connected groups and some famous researchers in this field. <a href="http://yilinwei.com/project/SDB_about_obesity/SDBtextmining2.pdf">This slides</a> give a summary of this project.</div>
+    		<div class="text"><a href="http://yilinwei.com//project/SDB_about_obesity/force.html">http://yilinwei.com//project/SDB_about_obesity/force.html</a> is a dynamic version of this graph. It needs more time to generate the force layout graph.</div>
+			<div class='graphalign'><img src="img/force.png" alt="SDB Research Papers about Obesity Social Network" height="600" width="800"></img></br></div>
     </div>
-    
+    <hr class="style-two"></hr>
+
+	<div id='content2'>
+		<div class="dc-data-count" style="float: left;">
+			<h2>SDB Research Papers about Obesity Dashboard
+			<small><span>
+				<span class="filter-count"></span>
+				selected out of 
+				<span class="total-count"></span>
+				records | 
+				<a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+			</span></small>
+			</h2>
+			<br>
+		</div>
+		<div class="container">
+			<div class='row'>
+				<div class='col-md-4'>
+					<div class='container' >
+					<div class=' row '>
+					<div class='col-md-12' id='dc-topic'>
+						<h4>Number of Articles by Topics
+							<span>
+								<small><a class="reset "
+								href="javascript:topicChart.filterAll();dc.redrawAll();"
+								style="display: none;">
+								reset
+								</a></small>
+							</span>
+						</h4>
+					</div>
+					</div>
+					</div>
+					<div class='container' >
+					<div class=' row '>
+					<div class='col-md-12' id='dc-author'>
+						<h4>Number of Articles by First Author
+							<span>
+								<small><a class="reset "
+								href="javascript:authorChart.filterAll();dc.redrawAll();"
+								style="display: none;">
+								reset
+								</a></small>
+							</span>
+						</h4>
+					</div>
+					</div>
+					</div>
+					<div class='container' >
+					<div class=' row '>
+					<div class='col-md-12' id='dc-magazine'>
+						<h4>Number of Articles by Magazine
+							<span>
+								<small><a class="reset "
+								href="javascript:magazineChart.filterAll();dc.redrawAll();"
+								style="display: none;">
+								reset
+								</a></small>
+							</span>
+						</h4>
+					</div>
+					</div>
+					</div>
+
+				</div>
+				<div class='col-md-4'  id='dc-org'>
+					<h4>Number of Articles by Organization
+						<span>
+							<small><a class="reset "
+							href="javascript:magazineChart.filterAll();dc.redrawAll();"
+							style="display: none;">
+							reset
+							</a></small>
+						</span>
+					</h4>
+				</div>
+				<div class='col-md-4'  id='dc-location'>
+					<h4>Number of Articles by Location
+						<span>
+							<small><a class="reset "
+							href="javascript:magazineChart.filterAll();dc.redrawAll();"
+							style="display: none;">
+							reset
+							</a></small>
+						</span>
+					</h4>
+				</div>
+			</div> 
+		</div>
+		<div class="container">
+			<div class='row'>
+				<div class='col-md-12' id='dc-number'>
+					<h4>Number of Articles by Year
+						<span>
+							<small><a class="reset "
+							href="javascript:yearChart.filterAll();dc.redrawAll();"
+							style="display: none;">
+							reset
+							</a></small>
+						</span>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<br>
+	    <div class="container">
+			<div class='row'>
+				<div class='col-md-12'>
+					<h4>Table of Articles</h4>
+					<table class='table table-hover' id='dc-table-graph'>
+						<thead>
+							<tr class='header'>
+								<th>Id</th>
+								<th>Title</th>
+								<th>Year</th>
+								<th>Magazine</th>
+								<th>Author</th>
+								<th>Topic</th>
+								<th>PubMed</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
     
 	<div id="footer">
 	    <p class="footertext">Thanks for the <a href="http://d3js.org/">D3</a>, <a href="http://getbootstrap.com/">Bootstrap</a> and <a href="http://glyphicons.com/">Glyphicon</a> open source community.</p>
