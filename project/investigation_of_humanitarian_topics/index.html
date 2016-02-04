@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Data visualiation of humanitarian topics for WHS data challenge.">
+        <meta name="author" content="Yilin Wei 魏艺琳">
+
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>WHS</title>
+
+		
+		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap -->
+		
+		
+		<script type="text/javascript" src="js/d3.min.js"></script><!-- D3.js -->
+        <link rel="shortcut icon" type="image/x-icon" href="img/tagpic.ico" media="screen" />
+        <link href='https://fonts.googleapis.com/css?family=Yantramanav:400,500,700' rel='stylesheet' type='text/css'>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-45111796-3', 'auto');
+        ga('send', 'pageview');
+
+        </script>
+	</head>
+	
+	<style>
+	
+	body{
+        width: 100%;
+        height: 100%;
+        background-image: url(http://yilinwei.com/project/investigation_of_humanitarian_topics/img/cream_dust.png);
+        font-family: 'Yantramanav', sans-serif;
+    }
+    
+    h1,h2{font-family:'Yantramanav';
+        font-weight:700;}
+        
+    hr.style-two {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #737373, rgba(0, 0, 0, 0));
+    }
+    #title{
+        width: 100%;
+        height: 60px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e69de+0,3690f0+49,54a3ee+50,6db3f2+100 */
+        background: rgb(30,105,222); /* Old browsers */
+        background: -moz-linear-gradient(45deg,  rgba(30,105,222,1) 0%, rgba(54,144,240,1) 49%, rgba(84,163,238,1) 50%, rgba(109,179,242,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(30,105,222,1)), color-stop(49%,rgba(54,144,240,1)), color-stop(50%,rgba(84,163,238,1)), color-stop(100%,rgba(109,179,242,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* IE10+ */
+        background: linear-gradient(45deg,  rgba(30,105,222,1) 0%,rgba(54,144,240,1) 49%,rgba(84,163,238,1) 50%,rgba(109,179,242,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e69de', endColorstr='#6db3f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    }
+    #toptitle{
+        width: 100%;
+        height: 100%;
+        margin-left:20px ;
+        color: #fcfcfc;
+        margin-top: 10px;
+    }
+    #head{
+        width: 100%;
+        height: 100%;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100&amp;1+0,1+62,0.7+68,0+100;Blue+to+Transparent+Sharp */
+        background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(89,148,202,1) 62%, rgba(95,154,207,0.7) 68%, rgba(125,185,232,0) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(62%,rgba(89,148,202,1)), color-stop(68%,rgba(95,154,207,0.7)), color-stop(100%,rgba(125,185,232,0))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(89,148,202,1) 62%,rgba(95,154,207,0.7) 68%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(89,148,202,1) 62%,rgba(95,154,207,0.7) 68%,rgba(125,185,232,0) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(89,148,202,1) 62%,rgba(95,154,207,0.7) 68%,rgba(125,185,232,0) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(89,148,202,1) 62%,rgba(95,154,207,0.7) 68%,rgba(125,185,232,0) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+    }
+    
+    #headimg{
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+    }
+    
+    .bigtext{
+        color:#207ce5;
+        font-size:150%;
+    }
+    
+    .smalltext{
+        color:#737373;
+    }
+    
+    #content0, #content1, #content2, #content3,#content4{
+        width: 1200px;
+        margin:20px auto;
+        padding:20px;
+    }
+    .textbox{
+        padding:20px;
+        background-color: #6997ef;
+    }
+   
+    #forcelayout{
+    }
+    #heatmap{ 
+    }
+    
+    #footer{
+    
+        width: 100%;
+        height: 60px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cfe7ff+0,c6e1fc+44,bbdaf9+100 */
+        background: rgb(207,231,255); /* Old browsers */
+        background: -moz-linear-gradient(45deg,  rgb(207,231,255) 0%, rgb(198,225,252) 44%, rgb(187,218,249) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgb(207,231,255)), color-stop(44%,rgb(198,225,252)), color-stop(100%,rgb(187,218,249))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(45deg,  rgb(207,231,255) 0%,rgb(198,225,252) 44%,rgb(187,218,249) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(45deg,  rgb(207,231,255) 0%,rgb(198,225,252) 44%,rgb(187,218,249) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(45deg,  rgb(207,231,255) 0%,rgb(198,225,252) 44%,rgb(187,218,249) 100%); /* IE10+ */
+        background: linear-gradient(45deg,  rgb(207,231,255) 0%,rgb(198,225,252) 44%,rgb(187,218,249) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfe7ff', endColorstr='#bbdaf9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    }
+    .footertext{
+    
+        text-align: center;
+        vertical-align:middle;
+    }
+    
+	/* css for force layout */
+	.node {
+		stroke: #fff;
+		stroke-width: 1.5px;
+	}
+	.link {
+		stroke: #999;
+	}
+	.legend{
+	    width:800px;
+	}
+    .tooltip {
+        position: absolute;	
+        text-align: left;			
+        padding: 2px;			
+        font: 16px sans-serif;		
+        background: #fcfcfc;	
+        padding:2px;
+        border: 5px;	
+        border-style:solid;
+        border-radius: 8px;	
+    }  
+
+	/* css for treemap */
+
+
+    form {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .square {
+        border: solid 3px #fafafa;
+        border-color: #fafafa;
+        border-radius:5px ;
+        font: 14px sans-serif;
+        line-height: 12px;
+        overflow: hidden;
+        position: absolute;
+        text-indent: 2px;
+    }
+
+
+
+    
+	</style>
+	<body>
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+	<div id="title" class="navbar-fixed-top">
+		<div class='row'>
+    			<div class='col-md-10'><h1 id="toptitle" >Investigation of Humanitarian Topics</h1></div>
+	        	<div class='col-md-1 text-right'></div>
+			<div class='col-md-1 text-center'><a href="http://yilinwei.com/gallery.html"><h3>Gallery</h3></a></div>
+		</div>
+	</div>
+	
+	<div id="head">
+        <img id="headimg" src="http://yilinwei.com/project/investigation_of_humanitarian_topics/img/s2.jpg" alt="Security Council Considers Humanitarian Situation in Syria"></img>
+        <!--<p align=right style="margin-right:20px;">Security Council Considers Humanitarian Situation in Syria<br><small>UN Photo/Loey Felipe</small></p>-->
+        <p align=right style="margin-right:20px;">Hawa Abdi Centre for Internally Displaced Somalis<br><small>UN Photo/Tobin Jones</small></p>
+    </div>
+    
+    
+    <div id="content0">
+        <!-- JiaThis Button BEGIN -->
+        <div class="jiathis_style_24x24">
+            <a class="jiathis_button_fb"></a>
+            <a class="jiathis_button_twitter"></a>
+            <a class="jiathis_button_linkedin"></a>
+            <a class="jiathis_button_douban"></a>
+            <a class="jiathis_button_tsina"></a>
+            <a href="http://www.jiathis.com/share?uid=2058140" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <a class="jiathis_counter_style"></a>
+        </div>
+        <script type="text/javascript">
+        var jiathis_config = {data_track_clickback:'true'};
+        </script>
+        <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2058140" charset="utf-8"></script>
+        <!-- JiaThis Button END --> 
+        
+        <div class="bigtext" style="font-weight:700;font-size:28px;">
+            <br>
+            <p>Find humanitarian topics helps us to deal with the pressing challenges and urgent problems. The goal of this data visualization is to investigate topics about humanity. The data comes from:
+            <ul>
+            <li><a href="https://unite.un.org/ideas/content/visualizechange-world-humanitarian-summit-data-challenge">WHS master data catelogue</a></li>
+            <li>26,222 tweets containing #humanitarian during 5 Nov 2014 - 15 Aug 2015</li>
+            </ul>
+            </p>
+        </div>
+        <p class="smalltext">
+            * Mouseover following graphs to get more information
+        </p>
+       
+    </div>
+    <hr class="style-two"></hr>
+    <div id="content1">
+        <h1>We care about ... topics/subtopics</h1>
+   
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-4">
+                    <ul class="bigtext">
+                        <li>All subtopics connects with each other</li>
+                        <li>Important topics are: 
+                            <ul>
+                            <li>Ensuring affected people, particularly women, have a stronger voice and greater role in humanitarian action</li>
+                            <li>Adapting the humanitarian system to new contexts, actors, and challenges</li>
+                            <li>Localizing preparedness and response</li>
+                            </ul>
+                        </li>
+                        <li>Frequently mentioned subtopics are: 
+                            <ul>
+                            <li>1E. Subsidiarity</li>
+                            <li>1C. Programming based on the needs of affected people</li>
+                            <li>1B. Community engagement</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="smalltext">
+                        The size of nodes shows the number of times that a subtopic is mentioned in a file. The weight of links presents the number of times that two subtopics appear in the same file. Nodes are colored by topics.
+                    </p>
+                </div>
+                <div class="col-md-8" id="forcelayout" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="style-two"></hr>
+    
+    <div id="content2">
+        <h1>Who care about ... topics</h1>
+        <div class="container">
+            <div class="row ">
+                
+                <div class="col-md-7" id="heatmap" ></div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <ul class="bigtext">
+                        <li>The public and stakeholder groups put forward most of topics</li>
+                        <li>Different groups have various concerns: 
+                            <ul>
+                            <li>The public and stakeholder groups want to ensure effected people play a greater role in humanitarian action</li>
+                            <li>WHS final reports focus more on new challenges</li>
+                            <li>Regions pay attention to efforts of environment and investment in innovation, but countries do not</li>
+                            <li>Gender and finance gap issues have not yet gain enough attention</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled smalltext">
+                        <li>Public input: public submissions</li>
+                        <li>WHS output: final consultation reports</li>
+                        <li>Stakeholder group: stakeholder analysis pieces</li>
+                        <li>National context: country submissions</li>
+                        <li>Regional context: region submissions</li>
+                        <li>Uncategorized: files do not belong to any category above</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="style-two"></hr>
+    
+    <div id="content3">
+        <h1>Other topics ...</h1>
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-12" id="treemap" ></div>
+                <div class="col-md-12">
+                <ul class="bigtext">
+                    <li>Most hashtags belong to location, funding, organization, politics</li>
+                    <li>Some inspiring hashtags are:
+                        <ul>
+                        <li>Locations: Syria, Yemen, Iraq, Ukraine, South Sudan etc.
+                            <ul class="list-unstyled">
+                                <li>It is high priority to improve the humanitarian situation in these areas.</li>
+                            </ul>
+                        </li>
+                        <li>Funding
+                            <ul class="list-unstyled">
+                                <li>How to collect enough funding and distribute it efficiently and fairly?</li>
+                            </ul>
+                        </li>
+                        <li>Organizations: UN, NGO, EU etc.
+                            <ul class="list-unstyled">
+                                <li>How to improve these organizations' ability in humanitarian actions?</li>
+                                <li>How to involve more organizations?</li>
+                            </ul>
+                        </li>
+                        <li>People: Humanitarian heroes, Merlene Hutto Byars, Michael Jackson, Angelina Jolie
+                            <ul class="list-unstyled">
+                                <li>What is the role of the famous in humanity?</li>
+                            </ul>
+                        </li>
+                        <li>Potential topics related to humanitarian: health, career, immigration, peace, art etc.
+                            <ul class="list-unstyled">
+                                <li>Solve problems in these areas will make the world better.</li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </li>
+                </ul>
+                </div>
+                <p class="smalltext">
+                    All the text is real hashtag. Only hashtags of which the stem words appear more than 60 times have been included. Some hashtags are merged with other hashtags having same meaning.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="style-two"></hr>
+    
+    <div id="content4">
+        <h1>3C Action</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <ul class="bigtext">
+                    <li style="font-weight:700;font-size:28px;">Collaboration</li>
+                        <ul class="list-unstyled">
+                        <li>To improve humanity, various stakeholders, including affected people, international organizations, country governments, should collaborate together.</li>
+                        </ul>
+                    <li style="font-weight:700;font-size:28px;">Concentration</li>
+                        <ul class="list-unstyled">
+                        <li>To improve humanity, we should concentrate on solving humanitarian issues in certain areas, such as Syria, Yemen and Iraq, and deal with influential humanitarian events like Nepal earthquake.</li>
+                        </ul>
+                    
+                    <li style="font-weight:700;font-size:28px;">Creativity</li>
+                        <ul class="list-unstyled">
+                        <li>To improve humanity, we must use new technology, such as <abbr title="Unmanned Aerial Vehicle" class="initialism">UAV</abbr>, and find creative method like social enterprise and celebrity effect.</li>
+                        </ul>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+	    <p class="footertext">Thanks for the <a href="http://d3js.org/">D3</a>, <a href="http://getbootstrap.com/">Bootstrap</a> and <a href="http://glyphicons.com/">Glyphicon</a> open source community.</p>
+	    <div class="footertext">
+	    <a href="http://yilinwei.com/"><span class="glyphicon glyphicon-home" aria-label="website" aria-hidden="true"></span></a>
+	                
+        <a href="mailto:ywei12@stevens.edu" target="_top"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+        </div>
+	</div> 
+	
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="forcelayout.js"></script>
+	<script type="text/javascript" src="heatmap.js"></script>
+    <script type="text/javascript" src="treemap.js"></script>
+	</body>
+  
+</html>

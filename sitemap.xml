@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://yilinwei.com/</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/index.html</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/gallery.html</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/blog/output/</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/project/investigation_of_humanitarian_topics/</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/project/MDG/</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/project/SDB_about_obesity/</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/project/SDB_about_obesity/SDBtextmining2.pdf</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/project/Factors_affecting_rate_on_MOOC/654_Team_Report.pdf</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/blog/output/category/blog.html</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/blog/output/random.html</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/blog/output/pages/2015/09/01/under%20construction/</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/blog/output/author/yilin-wei.html</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://yilinwei.com/blog/output/tag/test.html</loc>
+  <lastmod>2015-10-26T20:36:33+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>0.64</priority>
+</url>
+</urlset>
