@@ -31,7 +31,7 @@ h6 {
 }
 
 .navigator{
-    color: #fff
+    color: #fff;
 }
 
 .intro-header {
@@ -39,8 +39,8 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/intro-bg.png) no-repeat center center;
-    background-size: cover;
+    background: #333 url("../img/intro-bg.png") no-repeat center center;
+    height:100%;
 }
 
 .intro-message {
