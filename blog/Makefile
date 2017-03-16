@@ -1,4 +1,4 @@
-PY?=python
+TEMPLATE_PAGES PY?=python
 PELICAN?=pelican
 PELICANOPTS=
 
